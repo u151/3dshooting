@@ -10,7 +10,7 @@ Secret::Secret(GameObject* parent)
 
 void Secret::Initialize()
 {
-	hSecretPic_ = Image::Load("clear.jpg");
+	hSecretPic_ = Image::Load("secret.png");
 	assert(hSecretPic_ >= 0);
 }
 
