@@ -18,7 +18,7 @@ void Bullet::Initialize()
 {
 	hModel_ = Model::Load("tama1.fbx");
 	assert(hModel_ >= 0);
-	transform_.scale_ = { 0.25f,0.25f,0.25f };
+	transform_.scale_ = { 1.0f,1.0f,1.0f };
 	//Player* player = (Player*)FindObject("Player");
 	SphereCollider* collider = new SphereCollider(XMFLOAT3(0.0f, 0.0f, 0.0f), 0.5f);
 	AddCollider(collider);

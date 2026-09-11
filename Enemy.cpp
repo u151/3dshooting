@@ -15,7 +15,7 @@ void Enemy::Initialize()
 	//hModel_ = Model::Load("Oden.fbx");
 	assert(hModel_ >= 0);
 	transform_.position_ = { 0.0f,0.0f,10.0f };
-	transform_.scale_ = { 0.5f,0.5f,0.5f };
+	transform_.scale_ = { 0.25f,0.25f,0.25f };
 	transform_.rotate_ = { 0.0f,0.0f,0.0f };
 
 	SphereCollider* collider = new SphereCollider(XMFLOAT3(0.0f, 0.0f, 0.0f), 1.0f);
