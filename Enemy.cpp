@@ -11,8 +11,8 @@ Enemy::Enemy(GameObject* parent)
 void Enemy::Initialize()
 {
 
-	//hModel_ = Model::Load("teki.fbx");
-	hModel_ = Model::Load("Oden.fbx");
+	hModel_ = Model::Load("teki.fbx");
+	//hModel_ = Model::Load("Oden.fbx");
 	assert(hModel_ >= 0);
 	transform_.position_ = { 0.0f,0.0f,10.0f };
 	transform_.scale_ = { 0.5f,0.5f,0.5f };

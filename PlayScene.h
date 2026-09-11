@@ -22,6 +22,7 @@ public:
 private:
 	int hModel_;//モデルのハンドル
 	Transform ot_;//おでん用のトランスフォーム
+	int hSecretPic_;
 	
 };
 
