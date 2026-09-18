@@ -13,7 +13,7 @@ ClearScene::ClearScene(GameObject* parent)
 void ClearScene::Initialize()
 {
 	timer = 60;
-	hClearPic_ = Image::Load("clear.png.jpg");
+	hClearPic_ = Image::Load("clear_screen.jpg");
 	assert(hClearPic_ >= 0);
 }
 

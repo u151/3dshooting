@@ -19,7 +19,6 @@ PlayScene::PlayScene(GameObject* parent)
 
 void PlayScene::Initialize()
 {
-	hSecretPic_= Image::Load("clear.jpg");
 	Instantiate<Player>(this);//Playerのインスタンス＝プレイヤーオブジェクトを作る
 	Instantiate<Bullet>(this);//Playerのインスタンス＝プレイヤーオブジェクトを作る
 	for (int i = 0;i < ClearScene::clearcount;i++)
