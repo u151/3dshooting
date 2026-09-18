@@ -14,6 +14,7 @@ void Player::Initialize()
 	hModel_ = Model::Load("hontai.fbx");
 	assert(hModel_ >= 0);
 	transform_.position_ = { 0.0f,-4.0f,0.0f };
+	transform_.rotate_ = { 0.0f,-90.0f,0.0f };
 }
 
 void Player::Update()
@@ -38,7 +39,7 @@ void Player::Update()
 		//右に移動
 		transform_.position_.y = transform_.position_.y - 0.1f;
 	}
-	if (Input::IsKey(DIK_SPACE))
+	if (Input::IsKeyDown(DIK_SPACE))
 	{
 		//何らかの処理
 		Bullet* pBullet = Instantiate<Bullet>(this->GetParent());

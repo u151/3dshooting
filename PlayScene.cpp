@@ -1,4 +1,5 @@
 #include "PlayScene.h"
+#include "ClearScene.h"
 #include "Engine\\Model.h"
 #include "Player.h"
 #include "Bullet.h"
@@ -21,20 +22,19 @@ void PlayScene::Initialize()
 	hSecretPic_= Image::Load("clear.jpg");
 	Instantiate<Player>(this);//Playerのインスタンス＝プレイヤーオブジェクトを作る
 	Instantiate<Bullet>(this);//Playerのインスタンス＝プレイヤーオブジェクトを作る
-	Instantiate<Enemy>(this);
+	for (int i = 0;i < ClearScene::clearcount;i++)
+	{
+		Instantiate<Enemy>(this);
+	}
 	//Camera::SetPosition(XMFLOAT3(0.0f, 5.0f, -10.0f));
 	//Camera::SetTarget(XMFLOAT3(0.0f, 0.0f, 0.0f));
 }
 
 void PlayScene::Update()
 {
-	if (FindObject("Enemy")==nullptr) {
+	if (FindObject("Enemy") == nullptr) {
 		SceneManager* pSceneManager = (SceneManager*)(this->GetParent());
 		pSceneManager->ChangeScene(SCENE_ID_CLEAR);
-	}
-	if (Input::IsKey(DIK_I)) {
-		SceneManager* pSceneManager = (SceneManager*)(this->GetParent());
-		pSceneManager->ChangeScene(SCENE_ID_SECRET);
 	}
 }
 

@@ -9,6 +9,9 @@ public:
 	void Update() override;
 	void Draw() override;
 	void Release() override;
+	static int clearcount;
 private:
 	int hClearPic_;
+	int timer = 0;
+
 };

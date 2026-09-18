@@ -161,7 +161,6 @@
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayScene.cpp" />
-    <ClCompile Include="Secret.cpp" />
     <ClCompile Include="TestScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -193,7 +192,6 @@
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayScene.h" />
-    <ClInclude Include="Secret.h" />
     <ClInclude Include="TestScene.h" />
     <ClInclude Include="ヘッダー.h" />
   </ItemGroup>

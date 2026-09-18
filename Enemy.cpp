@@ -2,36 +2,60 @@
 #include "Engine\\Model.h"
 #include "Engine\\Input.h"
 #include "Engine/SphereCollider.h"
+#include <cstdlib>
+#include <ctime>
+
 Enemy::Enemy(GameObject* parent)
-//親のポインタ、オブジェクトの名前
 	:GameObject(parent, "Enemy"), hModel_(-1)
-{
-}
+{}
 
 void Enemy::Initialize()
 {
-
 	hModel_ = Model::Load("teki.fbx");
-	//hModel_ = Model::Load("Oden.fbx");
 	assert(hModel_ >= 0);
-	transform_.position_ = { 0.0f,0.0f,10.0f };
-	transform_.scale_ = { 0.25f,0.25f,0.25f };
-	transform_.rotate_ = { 0.0f,0.0f,0.0f };
 
-	SphereCollider* collider = new SphereCollider(XMFLOAT3(0.0f, 0.0f, 0.0f), 1.0f);
+	// ランダムの初期化
+	static bool initialized = false;
+
+	if (!initialized)
+	{
+		srand(static_cast<unsigned int>(time(nullptr)));
+		initialized = true;
+	}
+
+	// 出現位置をランダムにする
+	float randomX =
+		static_cast<float>((rand() % 21) - 10);
+
+	float randomZ =
+		static_cast<float>((rand() % 16) + 5);
+
+	transform_.position_ =
+	{ randomX, 0.0f, randomZ };
+
+	transform_.scale_ =
+	{ 0.25f, 0.25f, 0.25f };
+
+	transform_.rotate_ =
+	{ 0.0f, 180.0f, 0.0f };
+
+	SphereCollider* collider =
+		new SphereCollider(
+			XMFLOAT3(0.0f, 0.0f, 0.0f),
+			1.0f);
+
 	AddCollider(collider);
 }
 
 void Enemy::Update()
 {
 	static float time = 0.0f;
-	//ot_.rotate_.y=time;//回転させる
+
 	time += 0.025f;
-	//transform_.position_.x=6.0f*sin(2f);
-	float posx = 6.0 * sin(time);
-	//float posy=cos(3.0f*time);
+
+	float posx = 6.0f * sin(time);
+
 	transform_.position_.x = posx;
-	//transform_.position_.y=posy;
 }
 
 void Enemy::Draw()
@@ -41,8 +65,7 @@ void Enemy::Draw()
 }
 
 void Enemy::Release()
-{
-}
+{}
 
 void Enemy::OnCollision(GameObject* pTarget)
 {
@@ -50,6 +73,5 @@ void Enemy::OnCollision(GameObject* pTarget)
 	{
 		pTarget->KillMe();
 		KillMe();
-
 	}
 }
